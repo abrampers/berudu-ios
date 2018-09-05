@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TabBarIOS } from 'react-native';
+import { StyleSheet, Text, View, Image, TabBarIOS, NavigatorIOS } from 'react-native';
 
 export default class App extends React.Component {
   constructor (props) { 
@@ -49,14 +49,39 @@ export default class App extends React.Component {
   }
 }
 
-class FeedScreen extends React.Component {
+class FeedList extends React.Component {
   render() {
     return (
       <View>
-        <Text>
-          hello Feed Feed Feed Feed Feed
-        </Text>
+        <View
+          style={styles.titleContainer}
+        >
+          <Image
+            source={require('./assets/navigation-bar-icons/title/icon.png')}
+            style={styles.titleImage}
+          />
+        </View>
+        <View>
+          <Text>feed feed feed</Text>
+        </View>
       </View>
+    );
+  }
+}
+
+class FeedScreen extends React.Component {
+  render() {
+    return (
+      <NavigatorIOS
+        initialRoute={{
+          component: FeedList,
+          title: '',
+        }}
+        navigationBarHidden={true}
+        barTintColor={'white'}
+        translucent={false}
+        style={{flex: 1}}
+      />
     );
   }
 }
@@ -86,10 +111,19 @@ class ReadingListScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  titleContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
+    height: 88,
+    borderBottomWidth: 1,
+    borderColor: '#e5e5e5'
+  },
+  titleImage: {
+    top: 42
+  },
+  contentContainer: {
+    alignItems: 'center',
+    backgroundColor: '#f4f4f4',
+    height: 400
   },
 });
