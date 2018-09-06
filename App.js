@@ -62,7 +62,7 @@ class FeedList extends React.Component {
           />
         </View>
         <View>
-          <Text>feed feed feed</Text>
+          <Text>Hello World!</Text>
         </View>
       </View>
     );
@@ -115,7 +115,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     height: 88,
-    borderBottomWidth: 1,
+    shadowColor: '#000000',
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    shadowOffset: {
+      height: 4,
+      width: 0
+    },
+    borderBottomWidth: 0.5,
     borderColor: '#e5e5e5'
   },
   titleImage: {
