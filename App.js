@@ -7,8 +7,8 @@ import ReadingListTab from './src/containers/ReadingListTab/ReadingListTab';
 import ProfileTab from './src/containers/ProfileTab/ProfileTab';
 
 export default class App extends React.Component {
-  constructor (props) {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       selectedTab: 'feed',
