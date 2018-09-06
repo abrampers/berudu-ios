@@ -6,7 +6,7 @@ export default class FeedView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data = [
+      data: [
         {
         key: '1',
         title: 'Neural scene representation and rendering',
@@ -41,13 +41,13 @@ export default class FeedView extends React.Component {
 
   namafungsi = () => {
     console.log('lalalala jing');
-  };
+  }
 
   render() {
     return (
       <FeedContent
         data={ this.state.data }
-        onUpdate={ namafungsi }
+        onUpdate={ () => namafungsi() }
       />
     );
   }

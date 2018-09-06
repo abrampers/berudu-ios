@@ -1,18 +1,19 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, FlatList, View } from 'react-native';
 
-import renderCard from '../Card/Card'
+import renderFeedCard from '../FeedCard/FeedCard'
 
 export default class FeedContent extends React.Component {
   render() {
     return(
-      <FlatList
-        numColumns={ 1 }
-        data={ this.props.data }
-        renderItem={ (item) => (renderCard(item)) }
-        onRefresh={ this.props.onRefresh }
-      }
-      />
+      <View style={{ backgroundColor: '#F4F4F4', flex: 1, paddingTop: 6 }} >
+        <FlatList
+          numColumns={ 1 }
+          data={ this.props.data }
+          renderItem={ (item) => (renderFeedCard(item)) }
+          onRefresh={ this.props.onRefresh }
+        />
+      </View>
     );
   }
 }

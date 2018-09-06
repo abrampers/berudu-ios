@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 88,
     borderBottomWidth: 1,
-    borderColor: '#e5e5e5'
+    borderColor: '#e5e5e5',
   },
   headerImage: {
     top: 42
