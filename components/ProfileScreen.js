@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-class FeedScreen extends React.Component {
+class ProfileScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>
-          hello Feed Feed Feed Feed Feed
+          Profile breee
         </Text>
       </View>
     );
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FeedScreen;
+export default ProfileScreen;

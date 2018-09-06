@@ -1,13 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, TabBarIOS } from 'react-native';
 
-export default class App extends React.Component {
-  constructor (props) { 
-    super(); 
+import FeedScreen from './components/FeedScreen';
+import SubscriptionsScreen from './components/SubscriptionsScreen';
+import ReadingListScreen from './components/ReadingListScreen';
+import ProfileScreen from './components/ProfileScreen';
 
-    this.state = { 
-      selectedTab: 'feed', 
-    } 
+export default class App extends React.Component {
+  constructor (props) {
+    super();
+
+    this.state = {
+      selectedTab: 'feed',
+    }
   }
 
   render() {
@@ -49,43 +54,11 @@ export default class App extends React.Component {
   }
 }
 
-class FeedScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>
-          hello Feed Feed Feed Feed Feed
-        </Text>
-      </View>
-    );
-  }
-}
-
-class SubscriptionsScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>
-          hello Subscriptions Subscriptions
-        </Text>
-      </View>
-    );
-  }
-}
-
-class ReadingListScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>
-          hello ReadingList ReadingList
-        </Text>
-      </View>
-    );
-  }
-}
-
 const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: '#fff',
