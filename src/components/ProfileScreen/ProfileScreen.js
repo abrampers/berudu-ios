@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Button, Linking } from 'react-native';
 
 import styles from './Styles'
 import Header from '../Header/Header'
@@ -11,6 +11,7 @@ class ProfileScreen extends React.Component {
         <Header />
         <View>
           <Text>profile profile huyu</Text>
+          <Button title="Click me" onPress={ ()=>{ Linking.openURL('https://google.com')}} />
         </View>
       </View>
     );
