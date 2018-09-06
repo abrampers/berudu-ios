@@ -9,7 +9,7 @@ class FeedScreen extends React.Component {
       <NavigatorIOS
         initialRoute={{
           component: FeedList,
-          title: '',
+          title: ''
         }}
         navigationBarHidden={true}
         barTintColor={'white'}

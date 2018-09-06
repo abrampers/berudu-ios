@@ -49,6 +49,15 @@ export default class App extends React.Component {
         >
           <ReadingListScreen/>
         </TabBarIOS.Item>
+        <TabBarIOS.Item
+          icon={require('./src/assets/tab-bar-icons/profile/default/icon.png')}
+          selectedIcon={require('./src/assets/tab-bar-icons/profile/selected/icon.png')}
+          title={'Profile'}
+          onPress={ () => this.setState({selectedTab: 'profile'}) }
+          selected={ this.state.selectedTab == 'profile' }
+        >
+          <ReadingListScreen/>
+        </TabBarIOS.Item>
       </TabBarIOS>
     );
   }
