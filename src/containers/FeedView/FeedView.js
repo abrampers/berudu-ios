@@ -24,7 +24,7 @@ export default class FeedView extends React.Component {
       {
         key: '3',
         title: 'Tesla Roadster is ’embarrassing’ us, says supercar maker Koenigsegg',
-        author: 'Elektek.co',
+        author: 'Elektrek.co',
         date: '16 HRS',
         uri: 'https://i2.wp.com/electrek.co/wp-content/uploads/sites/3/2017/11/roadster_rear_341.jpg?resize=2000%2C0&quality=82&strip=all&ssl=1',
       },
