@@ -1,18 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  titleContainer: {
+  headerContainer: {
     alignItems: 'center',
     backgroundColor: 'white',
     height: 88,
     borderBottomWidth: 1,
     borderColor: '#e5e5e5'
   },
-  titleImage: {
+  headerImage: {
     top: 42
   },
   contentContainer: {

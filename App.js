@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TabBarIOS, NavigatorIOS } from 'react-native';
 
-import FeedScreen from './components/feed-screen/FeedScreen';
-import SubscriptionsScreen from './components/subscriptions-screen/SubscriptionsScreen';
-import ReadingListScreen from './components/reading-list-screen/ReadingListScreen';
-import ProfileScreen from './components/profile-screen/ProfileScreen';
+import FeedScreen from './src/containers/FeedScreen/FeedScreen';
+import SubscriptionsScreen from './src/containers/SubscriptionsScreen/SubscriptionsScreen';
+import ReadingListScreen from './src/containers/ReadingListScreen/ReadingListScreen';
+import ProfileScreen from './src/containers/ProfileScreen/ProfileScreen';
 
 export default class App extends React.Component {
   constructor (props) {
@@ -23,8 +23,8 @@ export default class App extends React.Component {
         tintColor={'black'}
       >
         <TabBarIOS.Item
-          icon={require('./assets/tab-bar-icons/feed/default/icon.png')}
-          selectedIcon={require('./assets/tab-bar-icons/feed/selected/icon.png')}
+          icon={require('./src/assets/tab-bar-icons/feed/default/icon.png')}
+          selectedIcon={require('./src/assets/tab-bar-icons/feed/selected/icon.png')}
           title={'Feed'}
           onPress={ () => this.setState({selectedTab: 'feed'}) }
           selected={ this.state.selectedTab == 'feed' }
@@ -32,8 +32,8 @@ export default class App extends React.Component {
           <FeedScreen/>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={require('./assets/tab-bar-icons/subscriptions/default/icon.png')}
-          selectedIcon={require('./assets/tab-bar-icons/subscriptions/selected/icon.png')}
+          icon={require('./src/assets/tab-bar-icons/subscriptions/default/icon.png')}
+          selectedIcon={require('./src/assets/tab-bar-icons/subscriptions/selected/icon.png')}
           title={'Subscriptions'}
           onPress={ () => this.setState({selectedTab: 'subscriptions'}) }
           selected={ this.state.selectedTab == 'subscriptions' }
@@ -41,8 +41,8 @@ export default class App extends React.Component {
           <SubscriptionsScreen/>
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          icon={require('./assets/tab-bar-icons/reading-list/default/icon.png')}
-          selectedIcon={require('./assets/tab-bar-icons/reading-list/selected/icon.png')}
+          icon={require('./src/assets/tab-bar-icons/reading-list/default/icon.png')}
+          selectedIcon={require('./src/assets/tab-bar-icons/reading-list/selected/icon.png')}
           title={'Reading List'}
           onPress={ () => this.setState({selectedTab: 'reading-list'}) }
           selected={ this.state.selectedTab == 'reading-list' }
