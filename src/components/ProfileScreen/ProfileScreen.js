@@ -11,7 +11,7 @@ class ProfileScreen extends React.Component {
         <Header />
         <View>
           <Text>profile profile huyu</Text>
-          <Button title="Click me" onPress={ ()=>{ Linking.openURL('https://google.com')}} />
+          <Button title="Click me" onPress={ ()=>{ Linking.openURL('https://google.com') }} />
         </View>
       </View>
     );
