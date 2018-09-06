@@ -4,7 +4,7 @@ import { Text, View, Image } from 'react-native';
 import styles from './Styles'
 import Header from '../Header/Header'
 
-class SubscriptionsList extends React.Component {
+class SubscriptionsScreen extends React.Component {
   render() {
     return (
       <View>
@@ -17,4 +17,4 @@ class SubscriptionsList extends React.Component {
   }
 }
 
-export default SubscriptionsList;
+export default SubscriptionsScreen;

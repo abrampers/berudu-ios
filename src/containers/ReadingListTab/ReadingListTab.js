@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavigatorIOS } from 'react-native';
 
-import FeedList from '../../components/FeedList/FeedList';
+import ReadingListScreen from '../../components/ReadingListScreen/ReadingListScreen';
 
-class FeedScreen extends React.Component {
+class ReadingListTab extends React.Component {
   render() {
     return (
       <NavigatorIOS
         initialRoute={{
-          component: FeedList,
+          component: ReadingListScreen,
           title: ''
         }}
         navigationBarHidden={true}
@@ -20,4 +20,4 @@ class FeedScreen extends React.Component {
   }
 }
 
-export default FeedScreen;
+export default ReadingListTab;
