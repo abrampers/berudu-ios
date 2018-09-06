@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TabBarIOS } from 'react-native';
+import { StyleSheet, Text, View, Image, TabBarIOS, NavigatorIOS } from 'react-native';
 
-import FeedScreen from './components/FeedScreen';
-import SubscriptionsScreen from './components/SubscriptionsScreen';
-import ReadingListScreen from './components/ReadingListScreen';
-import ProfileScreen from './components/ProfileScreen';
+import FeedScreen from './components/feed-screen/FeedScreen';
+import SubscriptionsScreen from './components/subscriptions-screen/SubscriptionsScreen';
+import ReadingListScreen from './components/reading-list-screen/ReadingListScreen';
+import ProfileScreen from './components/profile-screen/ProfileScreen';
 
 export default class App extends React.Component {
   constructor (props) {
@@ -53,16 +53,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  center: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
