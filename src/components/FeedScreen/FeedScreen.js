@@ -9,11 +9,7 @@ class FeedScreen extends React.Component {
     return (
       <View>
         <Header />
-        <View>
-          <Text style={styles.center} >
-            feed feed feed
-          </Text>
-        </View>
+        <FeedView />
       </View>
     );
   }

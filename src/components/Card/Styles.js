@@ -31,7 +31,10 @@ const styles = StyleSheet.create({
   },
   pageBackground: {
     backgroundColor: '#E5E5E5',
-  }
+  },
+  card: {
+
+  },
 });
 
 export default styles;
