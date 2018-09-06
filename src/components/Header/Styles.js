@@ -6,14 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 88,
     borderBottomWidth: 1,
-    borderColor: '#e5e5e5',
-    shadowOffset: { 
-      width: 0,  
-      height: 4
-    },
-    shadowRadius: 16,
-    shadowColor: 'black',
-    shadowOpacity: 0.08,
+    borderColor: '#e5e5e5'
   },
   headerImage: {
     top: 42
