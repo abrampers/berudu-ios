@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class FeedScreen extends React.Component {
+class ReadingListScreen extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text>
-          hjbfajsdbfhjbasjdfs
+          hello ReadingList ReadingList
         </Text>
       </View>
     );
@@ -22,3 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
+export default ReadingListScreen;
