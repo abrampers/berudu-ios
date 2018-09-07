@@ -4,6 +4,31 @@ import { View, Image, Text, TouchableOpacity } from 'react-native';
 import styles from './Styles'
 
 class FeedCard extends React.Component {
+  clippedTitle() {
+    const maxLength = 18;
+    const words = this.props.title.split(' ');
+    let title = '';
+    let row = 1;
+    let rowLength = 0;
+    let i;
+    for (i = 0; i < words.length; i++) {
+      if (words[i].length < maxLength - rowLength) {
+        rowLength += words[i].length + 1;
+        title += words[i] + ' ';
+      } else {
+        if (row < 3) {
+          row += 1;
+          rowLength = words[i].length + 1;
+          title += words[i] + ' ';
+        } else {
+          title += '...';
+          return title;
+        }
+      }
+    }
+    return this.props.title;
+  }
+
   render() {
     return(
       <TouchableOpacity onPress={this.props.onPress}>
@@ -12,10 +37,10 @@ class FeedCard extends React.Component {
             flexDirection: 'row', 
             backgroundColor: 'white', 
             borderRadius: 12, 
-            marginLeft: 50, 
-            marginRight: 16, 
-            marginTop: 7, 
-            marginBottom: 7, 
+            marginLeft: 48, 
+            marginRight: 14, 
+            marginTop: 5, 
+            marginBottom: 5, 
             height: 154, 
             flex: 1, 
             alignItems: 'center', 
@@ -51,10 +76,36 @@ class FeedCard extends React.Component {
               marginLeft: 0, 
               justifyContent: 'center', 
               position: 'relative', 
-              left: -18, 
-              height: 154
+              left: -18,
+              height: 154,
             }}
           >
+            <View
+              style={{
+                position: 'absolute', 
+                right: -16,
+                top: 5
+              }}
+            >
+              <View
+                style={{
+                  width: 40,
+                  height: 40,
+                  position: 'absolute', 
+                  right: -6,
+                  top: -6,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <TouchableOpacity onPress={this.props.onReadLaterPress}>
+                  <Image
+                    source={require('../../assets/article-card-icons/add-to-reading-list/disabled/icon.png')}
+                  />
+                </TouchableOpacity>
+              </View>
+
+            </View>
             <Text 
               style={{
                 fontFamily: 'System', 
@@ -66,7 +117,7 @@ class FeedCard extends React.Component {
                 marginBottom: 2 
               }}
             >
-              {this.props.title}
+              {this.clippedTitle()}
             </Text>
             <Text 
               style={{ 
@@ -86,12 +137,12 @@ class FeedCard extends React.Component {
               style={{
                 fontFamily: 'System', 
                 fontWeight: '500', 
-                marginLeft: 10, 
+                marginLeft: 12, 
                 textAlign: 'right', 
-                fontSize: 16, 
+                fontSize: 14, 
                 color: '#696969', 
                 position: 'absolute', 
-                bottom: 14, 
+                bottom: 12, 
                 right: 0
               }}
             >
@@ -104,7 +155,7 @@ class FeedCard extends React.Component {
   }
 }
 
-function renderFeedCard(item, onPress) {
+function renderFeedCard(item, onPress, onReadLaterPress) {
   return (
     <FeedCard
       uri={item.item.uri}
@@ -112,7 +163,9 @@ function renderFeedCard(item, onPress) {
       title={item.item.title}
       author={item.item.author}
       date={item.item.date}
+      readLater={item.item.readLater}
       onPress={() => { onPress(item.item.uri); }}
+      onReadLaterPress={() => { onReadLaterPress(item.item.key); }}
     />
   );
 }
