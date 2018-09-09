@@ -44,8 +44,8 @@ class FeedCard extends React.Component {
             borderRadius: 12, 
             marginLeft: 48, 
             marginRight: 14, 
-            marginTop: 5, 
-            marginBottom: 5, 
+            marginTop: this.props.isFirst ? 10 : 5, 
+            marginBottom: this.props.isLast ? 10 : 5, 
             height: 154, 
             flex: 1, 
             alignItems: 'center', 
@@ -156,7 +156,7 @@ class FeedCard extends React.Component {
   }
 }
 
-function renderFeedCard(item, onPress, onReadLaterPress) {
+function renderFeedCard(item, listLength, onPress, onReadLaterPress) {
   return (
     <FeedCard
       uri={item.item.uri}
@@ -164,6 +164,8 @@ function renderFeedCard(item, onPress, onReadLaterPress) {
       title={item.item.title}
       author={item.item.author}
       date={item.item.date}
+      isFirst={item.item.key == 0}
+      isLast={item.item.key == listLength - 1}
       readLater={item.item.readLater}
       onPress={() => { onPress(item.item.uri); }}
       onReadLaterPress={() => { onReadLaterPress(item.item.key); }}
