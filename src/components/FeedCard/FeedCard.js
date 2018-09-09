@@ -2,9 +2,7 @@ import React from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 
 import CardThumbnail from '../CardThumbnail/CardThumbnail'
-
-const READ_LATER_ENABLED_ICON = require('../../assets/article-card-icons/add-to-reading-list/enabled/icon.png');
-const READ_LATER_DISABLED_ICON = require('../../assets/article-card-icons/add-to-reading-list/disabled/icon.png');
+import ReadLaterToggle from '../ReadLaterToggle/ReadLaterToggle'
 
 class FeedCard extends React.Component {
   clippedTitle() {
@@ -33,8 +31,6 @@ class FeedCard extends React.Component {
   }
 
   render() {
-    const readLaterIcon = this.props.readLater ? READ_LATER_ENABLED_ICON : READ_LATER_DISABLED_ICON;
-    
     return(
       <TouchableOpacity onPress={this.props.onPress}>
         <View
@@ -54,14 +50,22 @@ class FeedCard extends React.Component {
             shadowRadius: 16
           }}
         >
-          <View style={{left: -34}}>
-            <CardThumbnail imageUri={this.props.imageUri} />
+          <View
+            style={{
+              left: -34,
+              zIndex: 1
+            }}
+          >
+            <CardThumbnail 
+              imageUri={this.props.imageUri} 
+              faded={this.props.read}
+            />
           </View>
           <View
             style={{
               flexDirection: 'column', 
               flex: 1, 
-              marginLeft: 0, 
+              marginLeft: 0,
               justifyContent: 'center', 
               position: 'relative', 
               left: -18,
@@ -75,37 +79,12 @@ class FeedCard extends React.Component {
                 top: 5
               }}
             >
-              <TouchableOpacity onPress={this.props.onReadLaterPress}>
-                <View
-                  hitSlop={{top: 20, bottom: 20, left: 20, right: 20}}
-                  style={{
-                    flex: 1, 
-                    flexDirection: 'row-reverse',
-                    justifyContent: 'flex-start',
-                    alignItems: 'center'
-                  }}
-                >
-                  <View>
-                    <Image source={readLaterIcon} />
-                  </View>
-                  <View>
-                    {this.props.readLater &&
-                      <Text
-                        style={{
-                          fontFamily: 'System', 
-                          fontWeight: '500', 
-                          marginLeft: 12, 
-                          textAlign: 'right', 
-                          fontSize: 11, 
-                          color: '#B2B2B2'
-                        }}
-                      >
-                        ADDED TO READING LIST
-                      </Text>
-                    }
-                  </View>
-                </View>
-              </TouchableOpacity>
+              {!this.props.read && 
+                <ReadLaterToggle
+                  enabled={this.props.readLater}
+                  onPress={() => { this.props.handleReadLaterPress(this.props.itemKey); }}
+                />
+              }
             </View>
             <Text 
               style={{
@@ -150,13 +129,27 @@ class FeedCard extends React.Component {
               {this.props.date}
             </Text>
           </View>
+          {this.props.read &&
+            <View
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                borderRadius: 12,
+                backgroundColor: 'white',
+                opacity: 0.7
+              }}
+            />
+          }
         </View>
       </TouchableOpacity>
     );
   }
 }
 
-function renderFeedCard(item, listLength, onPress, onReadLaterPress) {
+function renderFeedCard(item, listLength, onPress, handleReadLaterPress) {
   return (
     <FeedCard
       uri={item.item.uri}
@@ -164,11 +157,13 @@ function renderFeedCard(item, listLength, onPress, onReadLaterPress) {
       title={item.item.title}
       author={item.item.author}
       date={item.item.date}
+      itemKey={item.item.key}
       isFirst={item.item.key == 0}
       isLast={item.item.key == listLength - 1}
+      read={item.item.read}
       readLater={item.item.readLater}
-      onPress={() => { onPress(item.item.uri); }}
-      onReadLaterPress={() => { onReadLaterPress(item.item.key); }}
+      onPress={() => onPress(item.item.key)}
+      handleReadLaterPress={handleReadLaterPress}
     />
   );
 }

@@ -4,23 +4,39 @@ import { View, Image } from 'react-native';
 class CardThumbnail extends React.Component {
   render() {    
     return (
-      <View
-        style={{
-          shadowOpacity: 0.16, 
-          shadowOffset: { width: 0, height: 4 }, 
-          shadowRadius: 16,
-          borderRadius: 12
-        }}
-      >
-        <Image
+      <View>
+        <View
           style={{
-            width: 126, 
-            height: 126,
+            shadowOpacity: 0.16, 
+            shadowOffset: { width: 0, height: 4 }, 
+            shadowRadius: 16,
             borderRadius: 12,
-            backgroundColor: 'gray'
           }}
-          source={{uri: this.props.imageUri}}
-        />
+        >
+          <Image
+            style={{
+              width: 126, 
+              height: 126,
+              borderRadius: 12,
+              backgroundColor: 'gray'
+            }}
+            source={{uri: this.props.imageUri}}
+          />
+            {this.props.faded && 
+            <View
+              style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: 126, 
+                  height: 126,
+                  borderRadius: 12,
+                  backgroundColor: 'white',
+                  opacity: 0.7
+                }}
+            />
+          }
+        </View>
       </View>
     );
   }
