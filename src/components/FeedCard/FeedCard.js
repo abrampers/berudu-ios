@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 
-import styles from './Styles'
+import CardThumbnail from '../CardThumbnail/CardThumbnail'
+
+const READ_LATER_ENABLED_ICON = require('../../assets/article-card-icons/add-to-reading-list/enabled/icon.png');
+const READ_LATER_DISABLED_ICON = require('../../assets/article-card-icons/add-to-reading-list/disabled/icon.png');
 
 class FeedCard extends React.Component {
   clippedTitle() {
@@ -30,6 +33,8 @@ class FeedCard extends React.Component {
   }
 
   render() {
+    const readLaterIcon = this.props.readLater ? READ_LATER_ENABLED_ICON : READ_LATER_DISABLED_ICON;
+    
     return(
       <TouchableOpacity onPress={this.props.onPress}>
         <View
@@ -49,25 +54,8 @@ class FeedCard extends React.Component {
             shadowRadius: 16
           }}
         >
-          <View
-            style={{
-              shadowOpacity: 0.16, 
-              shadowOffset: { width: 0, height: 4 }, 
-              shadowRadius: 16,
-              backgroundColor: 'black',
-              left: -34,
-              borderRadius: 12
-            }}
-          >
-            <Image
-              style={{
-                width: 126, 
-                height: 126,
-                borderRadius: 12,
-                backgroundColor: 'gray'
-              }}
-              source={{uri: this.props.imageUri}}
-            />
+          <View style={{left: -34}}>
+            <CardThumbnail imageUri={this.props.imageUri} />
           </View>
           <View
             style={{
@@ -87,24 +75,37 @@ class FeedCard extends React.Component {
                 top: 5
               }}
             >
-              <View
-                style={{
-                  width: 40,
-                  height: 40,
-                  position: 'absolute', 
-                  right: -6,
-                  top: -6,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <TouchableOpacity onPress={this.props.onReadLaterPress}>
-                  <Image
-                    source={require('../../assets/article-card-icons/add-to-reading-list/disabled/icon.png')}
-                  />
-                </TouchableOpacity>
-              </View>
-
+              <TouchableOpacity onPress={this.props.onReadLaterPress}>
+                <View
+                  hitSlop={{top: 20, bottom: 20, left: 20, right: 20}}
+                  style={{
+                    flex: 1, 
+                    flexDirection: 'row-reverse',
+                    justifyContent: 'flex-start',
+                    alignItems: 'center'
+                  }}
+                >
+                  <View>
+                    <Image source={readLaterIcon} />
+                  </View>
+                  <View>
+                    {this.props.readLater &&
+                      <Text
+                        style={{
+                          fontFamily: 'System', 
+                          fontWeight: '500', 
+                          marginLeft: 12, 
+                          textAlign: 'right', 
+                          fontSize: 11, 
+                          color: '#B2B2B2'
+                        }}
+                      >
+                        ADDED TO READING LIST
+                      </Text>
+                    }
+                  </View>
+                </View>
+              </TouchableOpacity>
             </View>
             <Text 
               style={{

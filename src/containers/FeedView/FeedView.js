@@ -54,9 +54,14 @@ export default class FeedView extends React.Component {
   }
 
   onReadLaterPress = (itemKey) => {
-    this.setState((state, props) => ({
-      data: update(state.data, {itemKey: {readLater: {$set: !state.data[itemKey].readLater}}})
-    }));
+
+    // TODO: call API to add item to reading list
+
+    this.setState((state, props) => {
+      const newData = Object.assign([], state.data);
+      newData[itemKey].readLater = !state.data[itemKey].readLater;
+      return { data: newData };
+    });
   }
 
   namafungsi = () => {

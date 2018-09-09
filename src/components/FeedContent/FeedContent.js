@@ -14,10 +14,10 @@ export default class FeedContent extends React.Component {
         }}
       >
         <FlatList
-          numColumns={ 1 }
-          data={ this.props.data }
-          renderItem={ (item) => (renderFeedCard(item, this.props.onCardPress, this.props.onReadLaterPress)) }
-          onRefresh={ this.props.onRefresh }
+          numColumns={1}
+          data={this.props.data}
+          renderItem={(item) => (renderFeedCard(item, this.props.onCardPress, this.props.onReadLaterPress))}
+          onRefresh={this.props.onRefresh}
         />
       </View>
     );
