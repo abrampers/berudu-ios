@@ -8,9 +8,12 @@ import FeedView from '../../containers/FeedView/FeedView';
 class FeedScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, }}>
+      <View style={{
+      	flex: 1,
+      	paddingBottom: 83
+      }}>
         <Header />
-        <FeedView style={{ flex: 1, }}/>
+        <FeedView />
       </View>
     );
   }
