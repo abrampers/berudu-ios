@@ -9,11 +9,12 @@ export default class FeedContent extends React.Component {
       <View
         style={{
           backgroundColor: '#F4F4F4',
-          flex: 1
+          flex: 1,
+          paddingBottom: 49,
         }}
       >
         <FlatList
-          numColumns={ 1 }
+          numColumns={1}
           data={ this.props.data }
           renderItem={ (item) => (renderFeedCard(item, this.props.data.length, this.props.handleCardPress, this.props.handleReadLaterPress)) }
           onRefresh={ this.props.onRefresh }
