@@ -78,14 +78,14 @@ class FeedHeader extends React.Component {
               fontWeight: '900'
             }}
             >
-              { this.props.num }
+              { this.props.newStoriesCount }
             </Text>
           </View>
 
           <View
             style={{
               marginLeft: 7,
-              alignItems: 'center',
+              alignItems: 'flex-start',
               justifyContent: 'center',
             }}
           >
@@ -97,7 +97,7 @@ class FeedHeader extends React.Component {
                 fontFamily: 'System',
               }}
             >
-              New
+              NEW
             </Text>
 
             <Text // TODO: THIS IS REDUNDANT WITH THE ONE ABOVE, FIX
@@ -108,7 +108,7 @@ class FeedHeader extends React.Component {
                 fontFamily: 'System',
               }}
             >
-              Stories
+              STORIES
             </Text>
           </View>
         </View>
@@ -124,7 +124,10 @@ class FeedScreen extends React.Component {
       	flex: 1,
       	paddingBottom: 83
       }}>
-        <FeedHeader date={ this.props.date }/>
+        <FeedHeader
+          date={this.props.date}
+          newStoriesCount={this.props.newStoriesCount}
+        />
         <FeedView />
       </View>
     );

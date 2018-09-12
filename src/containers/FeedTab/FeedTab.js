@@ -7,6 +7,7 @@ class FeedTab extends React.Component {
 
   // TODO: Tembak initial disini
   date = 'September 12';
+  newStoriesCount = 11;
 
   render() {
     return (
@@ -16,6 +17,7 @@ class FeedTab extends React.Component {
           title: '',
           passProps: {
             date: this.date,
+            newStoriesCount: this.newStoriesCount,
           }
         }}
         navigationBarHidden={true}
