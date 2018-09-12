@@ -81,7 +81,7 @@ class FeedHeader extends React.Component {
               fontWeight: '900'
             }}
             >
-              {this.props.num}
+              { this.props.newStoriesCount }
             </Text>
           </View>
 
@@ -126,7 +126,10 @@ class FeedScreen extends React.Component {
       	flex: 1,
       	paddingBottom: 83
       }}>
-        <FeedHeader date={ this.props.date }/>
+        <FeedHeader
+          date={this.props.date}
+          newStoriesCount={this.props.newStoriesCount}
+        />
         <FeedView />
       </View>
     );

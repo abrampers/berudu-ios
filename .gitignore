@@ -9,6 +9,9 @@
 # xcode build
 ios/build
 
+# xcode settings
+ios/berudu.xcodeproj/project.pbxproj
+
 # misc
 .env.local
 .env.development.local
