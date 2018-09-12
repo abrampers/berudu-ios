@@ -266,7 +266,7 @@ export default class FeedView extends React.Component {
     const pressedItem = newData.find(item => item.key == itemKey)
     pressedItem.read = true;
     this.setState({data: newData});
-    
+
     Linking.openURL(pressedItem.uri);
   };
 
@@ -282,7 +282,17 @@ export default class FeedView extends React.Component {
     });
   };
 
-  handleCardClearPress = (itemKey) => {
+  handleCardUnreadPress = (itemKey) => {
+
+    // TODO: call API to mark item as unread
+
+    const newData = Object.assign([], this.state.data);
+    const pressedItem = newData.find(item => item.key == itemKey)
+    pressedItem.read = false;
+    this.setState({data: newData});
+  };
+
+  handleCardRemove = (itemKey) => {
 
     // TODO: call API to remove item
 
@@ -292,16 +302,6 @@ export default class FeedView extends React.Component {
       });
       return { data: newData };
     });
-  };
-
-  handleCardUnreadPress = (itemKey) => {
-
-    // TODO: call API to mark item as unread
-
-    const newData = Object.assign([], this.state.data);
-    const pressedItem = newData.find(item => item.key == itemKey)
-    pressedItem.read = false;
-    this.setState({data: newData});
   };
 
   makeRemoteRequest = () => {
@@ -328,13 +328,32 @@ export default class FeedView extends React.Component {
   };
 
   render() {
+    // const footer = (
+    //   <View 
+    //     style={{
+    //       alignItem: 'center',
+    //       justifyContent: 'center',
+    //     }}
+    //   >
+    //     <Text>
+    //       That's all for now!
+    //     </Text>
+    //   </View>
+    // );
+
+    // const listFooter = {
+    //   key: -1,
+    //   footer: true,
+    // };
+    // const dataWithFooter = Object.assign([], this.state.data);
+
     return (
       <FeedContent
         data={ this.state.data }
         handleCardPress={ this.handleCardPress }
         handleCardReadLaterPress={ this.handleCardReadLaterPress }
-        handleCardClearPress={ this.handleCardClearPress }
         handleCardUnreadPress={ this.handleCardUnreadPress }
+        handleCardRemove={ this.handleCardRemove }
         refreshing={ this.state.refreshing }
         onRefresh={ this.handleRefresh }
       />
