@@ -116,14 +116,13 @@ class FeedCard extends React.Component {
             <Text
               style={{
                 fontFamily: 'System',
-                fontWeight: '500',
-                marginLeft: 12,
+                fontWeight: '600',
                 textAlign: 'right',
-                fontSize: 14,
-                color: '#696969',
+                fontSize: 13,
+                color: '#B2B2B2',
                 position: 'absolute',
-                bottom: 12,
-                right: 0
+                bottom: 8,
+                right: -7
               }}
             >
               {this.props.date}
