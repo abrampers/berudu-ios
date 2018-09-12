@@ -10,7 +10,7 @@ class FeedHeader extends React.Component {
     return(
       <View
         style={{
-          height: 135,
+          height: 91,
           borderBottomWidth: 1,
           borderColor: '#e5e5e5',
           //flex: 1,
@@ -122,7 +122,6 @@ class FeedScreen extends React.Component {
     return (
       <View style={{
       	flex: 1,
-      	paddingBottom: 83
       }}>
         <FeedHeader
           date={this.props.date}
