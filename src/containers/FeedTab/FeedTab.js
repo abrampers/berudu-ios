@@ -4,12 +4,19 @@ import { NavigatorIOS } from 'react-native';
 import FeedScreen from '../../components/FeedScreen/FeedScreen';
 
 class FeedTab extends React.Component {
+
+  // TODO: Tembak initial disini
+  date = 'September 12';
+
   render() {
     return (
       <NavigatorIOS
         initialRoute={{
           component: FeedScreen,
-          title: ''
+          title: '',
+          passProps: {
+            date: this.date,
+          }
         }}
         navigationBarHidden={true}
         barTintColor={'white'}

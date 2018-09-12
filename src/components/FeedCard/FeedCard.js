@@ -34,19 +34,19 @@ class FeedCard extends React.Component {
     return(
       <TouchableOpacity onPress={this.props.onPress}>
         <View
-          style={{ 
-            flexDirection: 'row', 
-            backgroundColor: 'white', 
-            borderRadius: 12, 
-            marginLeft: 48, 
-            marginRight: 14, 
-            marginTop: this.props.isFirst ? 10 : 5, 
-            marginBottom: this.props.isLast ? 10 : 5, 
-            height: 154, 
-            flex: 1, 
-            alignItems: 'center', 
-            shadowOpacity: 0.08, 
-            shadowOffset: { width: 0, height: 4 }, 
+          style={{
+            flexDirection: 'row',
+            backgroundColor: 'white',
+            borderRadius: 12,
+            marginLeft: 48,
+            marginRight: 14,
+            marginTop: this.props.isFirst ? 10 : 5,
+            marginBottom: this.props.isLast ? 10 : 5,
+            height: 154,
+            flex: 1,
+            alignItems: 'center',
+            shadowOpacity: 0.08,
+            shadowOffset: { width: 0, height: 4 },
             shadowRadius: 16
           }}
         >
@@ -56,73 +56,73 @@ class FeedCard extends React.Component {
               zIndex: 1
             }}
           >
-            <CardThumbnail 
-              imageUri={this.props.imageUri} 
+            <CardThumbnail
+              imageUri={this.props.imageUri}
               faded={this.props.read}
             />
           </View>
           <View
             style={{
-              flexDirection: 'column', 
-              flex: 1, 
+              flexDirection: 'column',
+              flex: 1,
               marginLeft: 0,
-              justifyContent: 'center', 
-              position: 'relative', 
+              justifyContent: 'center',
+              position: 'relative',
               left: -18,
               height: 154,
             }}
           >
             <View
               style={{
-                position: 'absolute', 
+                position: 'absolute',
                 right: -16,
                 top: 5
               }}
             >
-              {!this.props.read && 
+              {!this.props.read &&
                 <ReadLaterToggle
                   enabled={this.props.readLater}
                   onPress={() => { this.props.handleReadLaterPress(this.props.itemKey); }}
                 />
               }
             </View>
-            <Text 
+            <Text
               style={{
-                fontFamily: 'System', 
+                fontFamily: 'System',
                 fontWeight: '700',
-                textAlign: 'left', 
-                fontSize: 20, 
-                fontWeight: 'bold', 
-                color: '#454F53', 
-                marginBottom: 2 
+                textAlign: 'left',
+                fontSize: 20,
+                // fontWeight: 'bold',
+                color: '#454F53',
+                marginBottom: 2
               }}
             >
               {this.clippedTitle()}
             </Text>
-            <Text 
-              style={{ 
-                fontFamily: 'System', 
-                fontWeight: '600', 
-                fontStyle: 'italic', 
-                textAlign: 'left', 
-                fontSize: 12, 
-                fontStyle: 'italic', 
-                color: '#78849E', 
-                marginBottom: 2 
+            <Text
+              style={{
+                fontFamily: 'System',
+                fontWeight: '600',
+                fontStyle: 'italic',
+                textAlign: 'left',
+                fontSize: 12,
+                fontStyle: 'italic',
+                color: '#78849E',
+                marginBottom: 2
               }}
             >
               {this.props.author}
             </Text>
-            <Text 
+            <Text
               style={{
-                fontFamily: 'System', 
-                fontWeight: '500', 
-                marginLeft: 12, 
-                textAlign: 'right', 
-                fontSize: 14, 
-                color: '#696969', 
-                position: 'absolute', 
-                bottom: 12, 
+                fontFamily: 'System',
+                fontWeight: '500',
+                marginLeft: 12,
+                textAlign: 'right',
+                fontSize: 14,
+                color: '#696969',
+                position: 'absolute',
+                bottom: 12,
                 right: 0
               }}
             >
