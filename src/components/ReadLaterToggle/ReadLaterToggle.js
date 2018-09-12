@@ -28,7 +28,6 @@ class ReadLaterToggle extends React.Component {
                 style={{
                   fontFamily: 'System', 
                   fontWeight: '500', 
-                  marginLeft: 12, 
                   textAlign: 'right', 
                   fontSize: 11, 
                   color: '#B2B2B2'
