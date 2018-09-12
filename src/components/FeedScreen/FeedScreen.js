@@ -35,7 +35,7 @@ class FeedHeader extends React.Component {
               marginLeft: 23,
             }}
           >
-          { this.props.date }
+          {this.props.date}
           </Text>
 
           <Text
@@ -69,6 +69,9 @@ class FeedHeader extends React.Component {
               backgroundColor: 'black',
               height: 45,
               width: 45,
+              shadowOpacity: 0.16, 
+              shadowOffset: { width: 0, height: 4 }, 
+              shadowRadius: 8,
             }}
           >
             <Text
@@ -92,18 +95,17 @@ class FeedHeader extends React.Component {
             <Text // TODO: THIS IS REDUNDANT WITH THE ONE BELOW, FIX
               style={{
                 fontSize: 14,
-                fontWeight: '700',
+                fontWeight: '800',
                 color: '#555555',
                 fontFamily: 'System',
               }}
             >
               NEW
             </Text>
-
             <Text // TODO: THIS IS REDUNDANT WITH THE ONE ABOVE, FIX
               style={{
                 fontSize: 14,
-                fontWeight: '700',
+                fontWeight: '800',
                 color: '#555555',
                 fontFamily: 'System',
               }}
