@@ -5,13 +5,11 @@ import styles from './Styles';
 import FeedHeader from '../FeedHeader/FeedHeader';
 import FeedView from '../../containers/FeedView/FeedView';
 
-
 class FeedScreen extends React.Component {
   render() {
     return (
       <View style={{
       	flex: 1,
-      	paddingBottom: 83
       }}>
         <FeedHeader
           date={this.props.date}

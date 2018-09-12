@@ -8,7 +8,7 @@ class FeedHeader extends React.Component {
     return(
       <View
         style={{
-          height: 135,
+          height: 91,
           borderBottomWidth: 1,
           borderColor: '#e5e5e5',
           //flex: 1,
@@ -33,8 +33,9 @@ class FeedHeader extends React.Component {
               marginLeft: 23,
             }}
           >
-            {this.props.date}
+          {this.props.date}
           </Text>
+
           <Text
             style={{
               fontFamily: 'System',
