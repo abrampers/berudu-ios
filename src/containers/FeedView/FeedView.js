@@ -262,20 +262,44 @@ export default class FeedView extends React.Component {
 
     // TODO: call API to mark item as read
 
-    Linking.openURL(this.state.data[itemKey].uri);
-
     const newData = Object.assign([], this.state.data);
-    newData[itemKey].read = true;
+    const pressedItem = newData.find(item => item.key == itemKey)
+    pressedItem.read = true;
     this.setState({data: newData});
+
+    Linking.openURL(pressedItem.uri);
   };
 
-  handleReadLaterPress = (itemKey) => {
+  handleCardReadLaterPress = (itemKey) => {
 
     // TODO: call API to add item to reading list
 
     this.setState((state, props) => {
       const newData = Object.assign([], state.data);
-      newData[itemKey].readLater = !state.data[itemKey].readLater;
+      const pressedItem = newData.find(item => item.key == itemKey)
+      pressedItem.readLater = !pressedItem.readLater;
+      return { data: newData };
+    });
+  };
+
+  handleCardUnreadPress = (itemKey) => {
+
+    // TODO: call API to mark item as unread
+
+    const newData = Object.assign([], this.state.data);
+    const pressedItem = newData.find(item => item.key == itemKey)
+    pressedItem.read = false;
+    this.setState({data: newData});
+  };
+
+  handleCardRemove = (itemKey) => {
+
+    // TODO: call API to remove item
+
+    this.setState((state, props) => {
+      const newData = state.data.filter(function(item) {
+        return item.key !== itemKey;
+      });
       return { data: newData };
     });
   };
@@ -304,11 +328,32 @@ export default class FeedView extends React.Component {
   };
 
   render() {
+    // const footer = (
+    //   <View 
+    //     style={{
+    //       alignItem: 'center',
+    //       justifyContent: 'center',
+    //     }}
+    //   >
+    //     <Text>
+    //       That's all for now!
+    //     </Text>
+    //   </View>
+    // );
+
+    // const listFooter = {
+    //   key: -1,
+    //   footer: true,
+    // };
+    // const dataWithFooter = Object.assign([], this.state.data);
+
     return (
       <FeedContent
         data={ this.state.data }
         handleCardPress={ this.handleCardPress }
-        handleReadLaterPress={ this.handleReadLaterPress }
+        handleCardReadLaterPress={ this.handleCardReadLaterPress }
+        handleCardUnreadPress={ this.handleCardUnreadPress }
+        handleCardRemove={ this.handleCardRemove }
         refreshing={ this.state.refreshing }
         onRefresh={ this.handleRefresh }
       />
