@@ -95,6 +95,7 @@ class FeedCard extends React.Component {
             >
               <CardThumbnail
                 imageUri={this.props.imageUri}
+                faded={this.props.read}
               />
             </View>
             <View
@@ -150,6 +151,22 @@ class FeedCard extends React.Component {
                 {this.props.date}
               </Text>
             </View>
+
+            {this.props.read &&
+              <View
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  top: 0,
+                  left: 0,
+                  borderRadius: 12,
+                  backgroundColor: 'white',
+                  opacity: 0.7
+                }}
+              />
+            }
+
             <View
               style={{
                 position: 'absolute',
@@ -157,10 +174,23 @@ class FeedCard extends React.Component {
                 top: 5
               }}
             >
-              <ReadLaterToggle
-                enabled={this.props.readLater}
-                onPress={this.props.onReadLaterPress}
-              />
+              {this.props.read &&
+                <View style={{flexDirection: 'row-reverse'}}>
+                  <ClearButton
+                    onPress={this.onClearPress}
+                  />
+                  <View style={{width: 6}} />
+                  <UnreadButton
+                    onPress={this.props.onUnreadPress}
+                  />
+                </View>
+              }
+              {!this.props.read &&
+                <ReadLaterToggle
+                  enabled={this.props.readLater}
+                  onPress={this.props.onReadLaterPress}
+                />
+              }
             </View>
           </View>
         </Animated.View>
@@ -169,7 +199,7 @@ class FeedCard extends React.Component {
   }
 }
 
-function renderFeedCard(item, listLength, onPress, onReadLaterPress) {
+function renderFeedCard(item, listLength, onPress, onReadLaterPress, onUnreadPress, onRemove) {
   return (
     <FeedCard
       uri={item.item.uri}
@@ -178,9 +208,12 @@ function renderFeedCard(item, listLength, onPress, onReadLaterPress) {
       author={item.item.author}
       date={item.item.date}
       itemKey={item.item.key}
+      read={item.item.read}
       readLater={item.item.readLater}
       onPress={() => onPress(item.item.key)}
       onReadLaterPress={() => onReadLaterPress(item.item.key)}
+      onUnreadPress={() => onUnreadPress(item.item.key)}
+      onRemove={() => onRemove(item.item.key)}
     />
   );
 }

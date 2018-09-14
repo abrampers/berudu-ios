@@ -2,9 +2,9 @@ import React from 'react';
 import { Linking } from 'react-native';
 import update from 'immutability-helper';
 
-import FeedContent from '../../components/FeedContent/FeedContent';
+import ReadingListContent from '../../components/ReadingListContent/ReadingListContent';
 
-export default class FeedView extends React.Component {
+export default class ReadingListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -260,21 +260,24 @@ export default class FeedView extends React.Component {
 
   handleCardPress = (itemKey) => {
 
-    // TODO: call API to add item to history
+    // Just open link, Reading list don't need t mark read
 
-    const pressedItem = this.state.data.find(item => item.key == itemKey);
+    const newData = Object.assign([], this.state.data);
+    const pressedItem = newData.find(item => item.key == itemKey)
+    pressedItem.read = true;
+    this.setState({data: newData});
+
     Linking.openURL(pressedItem.uri);
-
   };
 
-  handleCardReadLaterPress = (itemKey) => {
+  handleCardRemove = (itemKey) => {
 
-    // TODO: call API to add item to reading list
+    // TODO: call API to remove item
 
     this.setState((state, props) => {
-      const newData = Object.assign([], state.data);
-      const pressedItem = newData.find(item => item.key == itemKey)
-      pressedItem.readLater = !pressedItem.readLater;
+      const newData = state.data.filter(function(item) {
+        return item.key !== itemKey;
+      });
       return { data: newData };
     });
   };
@@ -287,9 +290,6 @@ export default class FeedView extends React.Component {
   };
 
   handleRefresh = () => {
-
-
-
     const newData = this.state.data == this.state.data1 ? this.state.data2 : this.state.data1;
     this.setState(
       {
@@ -303,30 +303,11 @@ export default class FeedView extends React.Component {
   };
 
   render() {
-    // const footer = (
-    //   <View
-    //     style={{
-    //       alignItem: 'center',
-    //       justifyContent: 'center',
-    //     }}
-    //   >
-    //     <Text>
-    //       That's all for now!
-    //     </Text>
-    //   </View>
-    // );
-
-    // const listFooter = {
-    //   key: -1,
-    //   footer: true,
-    // };
-    // const dataWithFooter = Object.assign([], this.state.data);
-
     return (
-      <FeedContent
+      <ReadingListContent
         data={this.state.data}
         handleCardPress={this.handleCardPress}
-        handleCardReadLaterPress={this.handleCardReadLaterPress}
+        handleCardRemove={this.handleCardRemove}
         refreshing={this.state.refreshing}
         onRefresh={this.handleRefresh}
       />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { ScrollView, FlatList, View } from 'react-native';
 
-import renderFeedCard from '../FeedCard/FeedCard'
+import renderReadingListCard from '../ReadingListCard/ReadingListCard'
 
-export default class FeedContent extends React.Component {
+export default class ReadingListContent extends React.Component {
   render() {
     return(
       <View
@@ -16,11 +16,11 @@ export default class FeedContent extends React.Component {
         <FlatList
           numColumns={1}
           data={this.props.data}
-          renderItem={(item) => (renderFeedCard(
+          renderItem={(item) => (renderReadingListCard(
             item,
             this.props.data.length,
             this.props.handleCardPress,
-            this.props.handleCardReadLaterPress,
+            this.props.handleCardRemove,
           ))}
           onRefresh={this.props.onRefresh}
           refreshing={this.props.refreshing}
