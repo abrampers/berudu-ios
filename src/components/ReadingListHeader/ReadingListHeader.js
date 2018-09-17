@@ -90,7 +90,7 @@ export default class ReadingListHeader extends React.Component {
               justifyContent: 'center',
             }}
           >
-            <Text // TODO: THIS IS REDUNDANT WITH THE ONE BELOW, FIX
+            <Text
               style={{
                 fontSize: 14,
                 fontWeight: '800',
@@ -98,17 +98,7 @@ export default class ReadingListHeader extends React.Component {
                 fontFamily: 'System',
               }}
             >
-              NEW
-            </Text>
-            <Text // TODO: THIS IS REDUNDANT WITH THE ONE ABOVE, FIX
-              style={{
-                fontSize: 14,
-                fontWeight: '800',
-                color: '#555555',
-                fontFamily: 'System',
-              }}
-            >
-              STORIES
+              NEW{'\n'}STORIES
             </Text>
           </View>
         </View>
