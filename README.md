@@ -1,3 +1,15 @@
+# Berudu
+
+Berudu is a personalized news aggregator app made just for everyone.
+
+## Creators
+1. Abram Situmorang - **FE iOS** - [abrampers](https://github.com/abrampers)
+1. Faza Fahleraz - **FE iOS + UI Designer** - [ffahleraz](https://github.com/ffahleraz)
+1. Nicholas Rianto Putra - **FE Android** - [Nicholaz99](https://github.com/Nicholaz99)
+1. M. Sulthan Adhipradhana - **BE** - [adhipradhana](https://github.com/abrampers)
+1. Ahmad Izzan - **BE** - [ahmadizzan](https://github.com/ahmadizzan)
+1. Yusuf Rahmat Pratama - **BE** - [yusufrahmatp](https://github.com/yusufrahmatp)
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
